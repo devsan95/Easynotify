@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InstaSnack</title>
+    <script>
+        const number = document.getElementById('numberInput').value;
+    </script>
+</head>
+<body>
+    {% if not foods %}
+        <tr>No Food items.</tr>
+    {% endif %}
+    {% for food in foods %}
+        <div class="card">
+            <!-- Input field for integer -->
+            {{ food }}
+            &nbsp;
+            <!-- Button to trigger the JavaScript function -->
+
+
+             <!-- Input field for integer -->
+            <label for="numberInput"Quantity:</label>
+            <input type="number" id="numberInput" name="numberInput" required>
+<a id="dynamicLink" href="#"><button type="button" onclick="setLink()">Add to Cart</button></a>
+        </div>
+        <!-- JavaScript embedded in the body -->
+        <script>
+            function setLink() {
+                // Get the integer value from the input field
+                const number = document.getElementById('numberInput').value;
+
+                // Construct the URL with the integer parameter
+                const url = `{% url 'Item:Addfoodtocart' food.item_id 0 %}`.replace('/0/', `/${number}/`);
+
+                // Set the href attribute of the anchor tag to the constructed URL
+                document.getElementById('dynamicLink').href = url;
+            }
+        </script>
+    {% endfor %}
+<button type="submit" class="colored-button">Go to Cart</button>
+</body>
+</html>

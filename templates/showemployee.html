@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InstaSnack</title>
+</head>
+<body>
+    {% if not employee %}
+        <tr>No Employee info.</tr>
+    {% endif %}
+    {% for employee in employees %}
+        <div class="card">
+          <h1>{{ employee }}</h1>
+          <p class="price">60 Rupees</p>
+          <label for="quantity">Enter Quantity:</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="100" step="1" required>
+          <br>
+          <p>Very talented</p>
+          <p><button>Add to Cart</button></p>
+        </div>
+    {% endfor %}
+</body>
+</html>

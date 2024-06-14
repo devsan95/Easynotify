@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/showitems.css"
+</head>
+<body>
+    {% if not snacks %}
+        <tr>No Snack items.</tr>
+    {% endif %}
+    {% for snack in snacks %}
+     <div class="card">
+          <h1>{{ snack }}</h1>
+          <p class="price">60 Rupees</p>
+          <label for="quantity">Enter Quantity:</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="100" step="1" required>
+          <br>
+          <p>Very fresh to consume</p>
+          <p><button>Add to Cart</button></p>
+    </div>
+    {% endfor %}
+</body>
+</html>
